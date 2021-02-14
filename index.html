@@ -21,33 +21,30 @@
 
 <body>
     <!-- Menu -->
-
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/img/portugal.svg" alt="" width="30" height="24">
+                </a>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Menu
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Home</a></li>
-                            <li><a class="dropdown-item" href="#cards">Curiosities</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#contact">Contact</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cards">Curiosities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tourism">Tourism</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact Us</a>
                     </li>
                 </ul>
-        
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-light" type="submit">Search</button>
@@ -55,12 +52,13 @@
             </div>
         </div>
     </nav>
-
     <!-- /Menu -->
 
+
     <!-- Carousel-->
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
+    
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators ">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
@@ -101,7 +99,6 @@
             <p class="lead"></p>
         </div>
     </div>
-
     <!-- /Jumbotron-->
 
     <!--Cards-->
@@ -163,9 +160,9 @@
         <!--/Cards-->
 
         <!-- Texto e Video -->
-        <div class="row mt-5 mb-5">
+        <div class="row mt-5 mb-5" id="tourism">
             <div class="col-md-6">
-                <h3> Portugal </h3>
+                <h2 class="row justify-content-center mb-4"> Tourism </h2>
                 <p>Located on the western coast of the Iberian peninsula, Portugal is one of Europe’s most visited
                     countries due to its idyllic climate, affordable travel costs and exceptional attractions.
                     Portugal’s varied geography ranges from the verdant mountains and vineyards of the North to the
@@ -176,8 +173,8 @@
                     visit in Portugal.</p>
             </div>
 
-            <div class="col-md-6">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/Z8XP7UjzvnU" frameborder="0"
+            <div class="col-md-6 d-flex">
+                <iframe width="600" height="315" src="https://www.youtube.com/embed/Z8XP7UjzvnU" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>
@@ -185,34 +182,41 @@
         <!--/Texto e Video -->
 
         <!-- Contato-->
-
         <div class="row mb-5">
-            <div class="col-md-12">
-                <h4 class="text-center" id="contact">Contact Us</h4>
+            <div class="col-md-12" id="contact">
+                <h4 class="text-center">Contact Us</h4>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 mb-3">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Name:</label>
+                    <input type="email" class="form-control" id="name" placeholder="Name" onkeyup="validName()">
+                    <div id="txtName"></div>
+                </div>
+
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Email address:</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1"
-                        placeholder="name@example.com">
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com"
+                        onkeyup="validEmail()">
+                    <div id="txtEmail"></div>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Info:</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <label for="exampleFormControlTextarea1" class="form-label">About:</label>
+                    <textarea class="form-control" id="about" rows="3" onkeyup="validAbout()"></textarea>
+                    <div id="txtAbout"></div>
                 </div>
                 <div class="form-group d-flex justify-content-end">
-                    <button class="btn btn-outline-dark">Send</button>
+                    <button class="btn btn-outline-dark" onclick="sent()">Send</button>
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 d-flex">
                 <iframe class="w-100"
                     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1888470.1784705867!2d-9.92447040652957!3d38.97930885132564!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19331a61e4f33b%3A0x400ebbde49036d0!2sLisboa%2C%20Portugal!5e0!3m2!1spt-BR!2sbr!4v1613154904918!5m2!1sen!2sbr"
-                    width="400" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-                    tabindex="0"></iframe>
+                    width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                    id="map" onmousemove="mapZoom()" onmouseout="mapNormal()" tabindex="0"></iframe>
             </div>
         </div>
 
@@ -259,6 +263,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
         integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
         crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
 
 </body>
 
